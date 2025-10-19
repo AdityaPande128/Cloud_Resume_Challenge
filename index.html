@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pande</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900 text-slate-300">
+
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+
+        
+        <header class="text-center fade-in-section">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight">Aditya Pande</h1>
+            <p class="mt-4 text-lg md:text-xl text-blue-400">MSc. Computer Science Student at University College London</p>
+            <p class="mt-2 max-w-2xl mx-auto text-slate-400">
+                Focused on Software Development, Data Science, and Machine Learning.
+            </p>
+            <div class="mt-6 flex justify-center items-center space-x-6">
+                <a href="mailto:aditya.pande.128@gmail.com" class="flex items-center space-x-2 text-slate-300 hover:text-blue-400 transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">aditya.pande.128@gmail.com</span>
+                </a>
+                <a href="tel:+447774922201" class="flex items-center space-x-2 text-slate-300 hover:text-blue-400 transition-colors">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">+44 77749 22201</span>
+                </a>
+                <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="text-slate-300 hover:text-blue-400 transition-colors">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/AdityaPande128" target="_blank" class="text-slate-300 hover:text-blue-400 transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="mt-16 md:mt-24 space-y-16 md:space-y-24">
+            
+            
+            <section id="skills" class="fade-in-section">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Technical Skills</h2>
+                <div class="max-w-4xl mx-auto bg-slate-800/50 rounded-lg p-6">
+                    <div class="flex justify-center border-b border-slate-700 mb-6">
+                        <button class="skill-tab skill-tab-active py-2 px-4 font-semibold" data-tab="languages">Languages</button>
+                        <button class="skill-tab py-2 px-4 font-semibold text-slate-400" data-tab="tools">Frameworks & Tools</button>
+                        <button class="skill-tab py-2 px-4 font-semibold text-slate-400" data-tab="certs">Certifications</button>
+                    </div>
+                    <div id="skills-content">
+                       
+                        <div id="languages-tab" class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <h3 class="font-bold text-white">Python</h3>
+                                <p class="text-sm text-blue-400">Advanced</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <h3 class="font-bold text-white">C/C++</h3>
+                                <p class="text-sm text-slate-400">Intermediate</p>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg">
+                                <h3 class="font-bold text-white">SQL</h3>
+                                <p class="text-sm text-slate-400">Beginner</p>
+                            </div>
+                        </div>
+                        
+                        <div id="tools-tab" class="hidden flex flex-wrap justify-center gap-3">
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">HTML/CSS</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Git</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">VS Code</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">GitHub</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Pandas</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">NumPy</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Jenkins</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Docker</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Terraform</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">AWS</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Azure</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Seaborn</span>
+                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Scikit-learn</span>
+                        </div>
+                        
+                        <div id="certs-tab" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                            <div class="bg-slate-700/50 p-4 rounded-lg flex items-center justify-center space-x-3">
+                                <i data-lucide="award" class="w-6 h-6 text-blue-400"></i>
+                                <h3 class="font-semibold text-white">Certified Kubernetes Administrator</h3>
+                            </div>
+                            <div class="bg-slate-700/50 p-4 rounded-lg flex items-center justify-center space-x-3">
+                                <i data-lucide="award" class="w-6 h-6 text-blue-400"></i>
+                                <h3 class="font-semibold text-white">AWS Certified Cloud Practitioner</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="projects" class="fade-in-section">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white">U.S. State-Level Economic Data Visualization</h3>
+                            <p class="mt-2 text-slate-400">Leveraged the FRED API to collect and consolidate U.S. state unemployment and participation data into a Pandas DataFrame, developing an interactive Plotly visualization.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
+                         <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white">U.S. Housing Price Analysis</h3>
+                            <p class="mt-2 text-slate-400">Engineered a Scikit-learn predictive model to analyze the impact of national income and federal interest rates on median house prices using data from the FRED database.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-white">Research: Submerged Arc Welding Parameters</h3>
+                            <p class="mt-2 text-slate-400">Utilized ANOVA to evaluate the effects of SAW parameters on weld bead geometry. Developed predictive models and presented findings at a SCOPUS-indexed conference.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="education" class="fade-in-section">
+                 <h2 class="text-3xl font-bold text-white text-center mb-12">Education</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
+                         <!-- Timeline Item: UCL -->
+                        <div class="relative">
+                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                             <h3 class="text-xl font-bold text-white">M.Sc. in Computer Science</h3>
+                             <p class="text-md font-medium text-slate-400">University College London (UCL) | <span class="text-blue-400">Graduating 2026</span></p>
+                             <p class="mt-2 text-slate-400 text-sm">Coursework: Data Structures & Algorithms, Relational Databases, Computer Architecture, OOP with Python, Machine Learning with Big Data.</p>
+                        </div>
+                        <!-- Timeline Item: Bachelors -->
+                        <div class="relative">
+                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                             <h3 class="text-xl font-bold text-white">B.Tech in Mechanical Engineering</h3>
+                             <p class="text-md font-medium text-slate-400">Netaji Subhas University of Technology | <span class="text-blue-400">Graduated 2025</span></p>
+                             <p class="mt-2 text-slate-400 text-sm">Specialization in EVs. Awarded University Scholarship, ranked in the top 5% of the class with a GPA of 8.38/10.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section id="experience" class="fade-in-section">
+                 <h2 class="text-3xl font-bold text-white text-center mb-12">Work Experience</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
+                        
+                        <div class="relative">
+                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                             <h3 class="text-xl font-bold text-white">Workshop Assistant</h3>
+                             <p class="text-md font-medium text-slate-400">Netaji Subhas University of Technology | <span class="text-blue-400">May - July 2025</span></p>
+                             <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                                 <li>Repaired lathe machines by analyzing electrical schematics.</li>
+                                 <li>Devised a reverse-engineering technique for industrial drilling machines.</li>
+                                 <li>Conducted in-depth studies on industrial shaper machines.</li>
+                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+           
+            <section id="extracurriculars" class="fade-in-section">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Extracurriculars</h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
+                        
+                        <div class="relative">
+                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                            <h3 class="text-xl font-bold text-white">Director, Parliamentary Debating</h3>
+                            <p class="text-md font-medium text-slate-400">The Debating Society of NSUT | <span class="text-blue-400">2023-24</span></p>
+                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                                <li>Led a department of over 80 people, training and arranging events for juniors.</li>
+                                <li>Led contingents to 10+ national and international Parliamentary Debating competitions.</li>
+                                <li>Organized workshops with eminent international debaters from Australia and the US.</li>
+                            </ul>
+                       </div>
+                       
+                       <div class="relative">
+                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                            <h3 class="text-xl font-bold text-white">Member, Executive Committee</h3>
+                            <p class="text-md font-medium text-slate-400">The Debating Society of NSUT | <span class="text-blue-400">2022-23</span></p>
+                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                                <li>Helped organize and manage multiple competitions, each attracting hundreds of competitors.</li>
+                                <li>Worked with fellow ExeComm members to ideate and advertise events while handling logistics.</li>
+                            </ul>
+                       </div>
+                       
+                       <div class="relative">
+                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                            <h3 class="text-xl font-bold text-white">Under Director-General, Debating, Colloquium</h3>
+                            <p class="text-md font-medium text-slate-400">The Literary Fest of NSUT | <span class="text-blue-400">2023</span></p>
+                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                                <li>Co-organized the largest Parliamentary Debating Tournament in North India in 2023.</li>
+                                <li>Managed outreach, logistics, and finances for the event.</li>
+                            </ul>
+                       </div>
+                      
+                       <div class="relative">
+                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
+                            <h3 class="text-xl font-bold text-white">Tab Director</h3>
+                            <p class="text-md font-medium text-slate-400">NSMPD | <span class="text-blue-400">2023</span></p>
+                             <p class="mt-2 text-slate-400 text-sm">Managed the TabbyCat software for a Parliamentary Debating tournament, handling allocations, scoring, and logistics.</p>
+                       </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+       
+
+        <footer id="contact" class="text-center mt-16 md:mt-24 pt-8 border-t border-slate-800">
+            <h2 class="text-2xl font-bold text-white mb-4">Get In Touch</h2>
+            <p class="text-slate-400 mb-6">Feel free to reach out!</p>
+            <a href="mailto:aditya.pande.128@gmail.com" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                Say Hello!
+            </a>
+            <div class="mt-8 flex justify-center items-center space-x-6">
+                 <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="text-slate-500 hover:text-blue-400 transition-colors">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/AdityaPande128" target="_blank" class="text-slate-500 hover:text-blue-400 transition-colors">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-slate-600 mt-8 text-sm">I'm looking for open roles right now. If you're hiring, please feel free to contact me.</p>
+        </footer>
+
+    </div>
+
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
