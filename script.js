@@ -48,3 +48,22 @@ skillTabs.forEach(tab => {
         skillContents[tabName].classList.remove('hidden');
     });
 });
+
+const counter = document.getElementById('visitor-count');
+const apiUrl = 'https://ge45qvtkw9.execute-api.eu-north-1.amazonaws.com/Prod/count/'; 
+
+async function updateCounter() {
+    try {
+        let response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        let data = await response.json();
+        counter.textContent = data.count;
+    } catch (error) {
+        console.error('Could not fetch visitor count:', error);
+        counter.textContent = 'N/A';
+    }
+}
+
+updateCounter();
