@@ -29,4 +29,22 @@ body {
 .project-card:hover::before {
     opacity: 1;
 }
+.visitor-count-pill {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(145deg, #3b82f6, #2563eb);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  vertical-align: middle;
+  margin-left: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.visitor-count-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
 
