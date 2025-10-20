@@ -29,14 +29,4 @@ body {
 .project-card:hover::before {
     opacity: 1;
 }
-.visitor-count-pill {
-  display: inline-block;
-  font-size: 0.9rem; /* Larger font size */
-  font-weight: 600; /* Bolder text */
-  color: #ffffff; /* White text color */
-  background-color: #2563eb; /* Blue background to match your theme */
-  padding: 0.25rem 0.75rem; /* Vertical and horizontal padding */
-  border-radius: 9999px; /* Creates the pill shape */
-  vertical-align: middle; /* Aligns it nicely with the "Visitors:" text */
-}
 
