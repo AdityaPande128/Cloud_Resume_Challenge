@@ -215,7 +215,7 @@
 (function initVisitorCounter() {
     const counterEl = document.getElementById('visitor-count');
     if (!counterEl) return;
-    const apiUrl = 'https://ge45qvtkw9.execute-api.eu-north-1.amazonaws.com/Prod/count/';
+    const apiUrl = 'https://slmsw6wyo2.execute-api.eu-north-1.amazonaws.com/count';
 
     function animateCount(target) {
         const duration = 1500;
