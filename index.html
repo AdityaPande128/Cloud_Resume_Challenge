@@ -1,247 +1,498 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Pande</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Aditya Pande — Software Engineer</title>
+    <meta name="description" content="Aditya Pande — MSc Computer Science student at UCL. Software Development, Cloud Architecture, and AI.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-900 text-slate-300">
+<body>
 
-    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+        <canvas id="particle-canvas"></canvas>
 
-        
-        <header class="text-center fade-in-section">
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight">Aditya Pande</h1>
-            <p class="mt-4 text-lg md:text-xl text-blue-400">MSc. Computer Science Student at University College London</p>
-            <p class="mt-2 max-w-2xl mx-auto text-slate-400">
-                Focused on Software Development, Data Science, and Machine Learning.
+        <div class="scroll-progress" id="scroll-progress"></div>
+
+        <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-link active">Home</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#activities" class="nav-link">Activities</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+        <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <span class="dot"></span>
+                Open to Opportunities
+            </div>
+            <h1 class="hero-name fade-in fade-in-delay-1">Aditya Pande</h1>
+            <p class="hero-title fade-in fade-in-delay-2">MSc Computer Science at University College London</p>
+            <p class="hero-subtitle fade-in fade-in-delay-3">
+                <span id="typed-text"></span><span class="typing-cursor"></span>
             </p>
-            <div class="mt-6 flex justify-center items-center space-x-6">
-                <a href="mailto:aditya.pande.128@gmail.com" class="flex items-center space-x-2 text-slate-300 hover:text-blue-400 transition-colors">
-                    <i data-lucide="mail" class="w-5 h-5"></i>
-                    <span class="hidden sm:inline">aditya.pande.128@gmail.com</span>
+            <div class="hero-links fade-in fade-in-delay-4">
+                <a href="mailto:aditya.pande.128@gmail.com" class="hero-link hero-link--primary" id="hero-email-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    Get in Touch
                 </a>
-                <a href="tel:+447774922201" class="flex items-center space-x-2 text-slate-300 hover:text-blue-400 transition-colors">
-                    <i data-lucide="phone" class="w-5 h-5"></i>
-                    <span class="hidden sm:inline">+44 77749 22201</span>
+                <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="hero-link" id="hero-linkedin-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
                 </a>
-                <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="text-slate-300 hover:text-blue-400 transition-colors">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                <a href="https://github.com/AdityaPande128" target="_blank" class="hero-link" id="hero-github-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    GitHub
                 </a>
-                <a href="https://github.com/AdityaPande128" target="_blank" class="text-slate-300 hover:text-blue-400 transition-colors">
-                    <i data-lucide="github" class="w-6 h-6"></i>
+                <a href="tel:+447774922201" class="hero-link" id="hero-phone-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Phone
                 </a>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <main class="mt-16 md:mt-24 space-y-16 md:space-y-24">
-            
-            
-            <section id="skills" class="fade-in-section">
-                <h2 class="text-3xl font-bold text-white text-center mb-12">Technical Skills</h2>
-                <div class="max-w-4xl mx-auto bg-slate-800/50 rounded-lg p-6">
-                    <div class="flex justify-center border-b border-slate-700 mb-6">
-                        <button class="skill-tab skill-tab-active py-2 px-4 font-semibold" data-tab="languages">Languages</button>
-                        <button class="skill-tab py-2 px-4 font-semibold text-slate-400" data-tab="tools">Frameworks & Tools</button>
-                        <button class="skill-tab py-2 px-4 font-semibold text-slate-400" data-tab="certs">Certifications</button>
-                    </div>
-                    <div id="skills-content">
-                       
-                        <div id="languages-tab" class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-center">
-                            <div class="bg-slate-700/50 p-4 rounded-lg">
-                                <h3 class="font-bold text-white">Python</h3>
-                                <p class="text-sm text-blue-400">Advanced</p>
-                            </div>
-                            <div class="bg-slate-700/50 p-4 rounded-lg">
-                                <h3 class="font-bold text-white">C/C++</h3>
-                                <p class="text-sm text-slate-400">Intermediate</p>
-                            </div>
-                            <div class="bg-slate-700/50 p-4 rounded-lg">
-                                <h3 class="font-bold text-white">SQL</h3>
-                                <p class="text-sm text-slate-400">Beginner</p>
-                            </div>
-                        </div>
-                        
-                        <div id="tools-tab" class="hidden flex flex-wrap justify-center gap-3">
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">HTML/CSS</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Git</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">VS Code</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">GitHub</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Pandas</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">NumPy</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Jenkins</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Docker</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Terraform</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">AWS</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Azure</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Seaborn</span>
-                            <span class="bg-slate-700 text-white text-sm font-medium px-3 py-1 rounded-full">Scikit-learn</span>
-                        </div>
-                        
-                        <div id="certs-tab" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
-                            <div class="bg-slate-700/50 p-4 rounded-lg flex items-center justify-center space-x-3">
-                                <i data-lucide="award" class="w-6 h-6 text-blue-400"></i>
-                                <h3 class="font-semibold text-white">Certified Kubernetes Administrator</h3>
-                            </div>
-                            <div class="bg-slate-700/50 p-4 rounded-lg flex items-center justify-center space-x-3">
-                                <i data-lucide="award" class="w-6 h-6 text-blue-400"></i>
-                                <h3 class="font-semibold text-white">AWS Certified Cloud Practitioner</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <div class="container">
 
-            
-            <section id="projects" class="fade-in-section">
-                <h2 class="text-3xl font-bold text-white text-center mb-12">Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white">U.S. State-Level Economic Data Visualization</h3>
-                            <p class="mt-2 text-slate-400">Leveraged the FRED API to collect and consolidate U.S. state unemployment and participation data into a Pandas DataFrame, developing an interactive Plotly visualization.</p>
-                        </div>
+                <section class="section" id="skills">
+            <div class="section-header fade-in">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="skills-grid fade-in stagger-children">
+                <div class="skill-category" id="skill-languages">
+                    <div class="skill-category-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        Languages
                     </div>
-                    
-                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
-                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white">U.S. Housing Price Analysis</h3>
-                            <p class="mt-2 text-slate-400">Engineered a Scikit-learn predictive model to analyze the impact of national income and federal interest rates on median house prices using data from the FRED database.</p>
-                        </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Bash</span>
                     </div>
-                    
-                    <div class="relative project-card bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 transform hover:-translate-y-1 transition-all duration-300">
-                        <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-white">Research: Submerged Arc Welding Parameters</h3>
-                            <p class="mt-2 text-slate-400">Utilized ANOVA to evaluate the effects of SAW parameters on weld bead geometry. Developed predictive models and presented findings at a SCOPUS-indexed conference.</p>
+                </div>
+                <div class="skill-category" id="skill-tools">
+                    <div class="skill-category-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        Frameworks & Tools
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">AWS SAM</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Seaborn</span>
+                    </div>
+                </div>
+                <div class="skill-category" id="skill-certs">
+                    <div class="skill-category-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        Certifications
+                    </div>
+                    <div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                            </div>
+                            <span class="cert-name">Certified Kubernetes Administrator (CKA)</span>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                            </div>
+                            <span class="cert-name">AWS Certified Cloud Practitioner</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            
-            <section id="education" class="fade-in-section">
-                 <h2 class="text-3xl font-bold text-white text-center mb-12">Education</h2>
-                <div class="max-w-3xl mx-auto">
-                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
-                         <!-- Timeline Item: UCL -->
-                        <div class="relative">
-                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                             <h3 class="text-xl font-bold text-white">M.Sc. in Computer Science</h3>
-                             <p class="text-md font-medium text-slate-400">University College London (UCL) | <span class="text-blue-400">Graduating 2026</span></p>
-                             <p class="mt-2 text-slate-400 text-sm">Coursework: Data Structures & Algorithms, Relational Databases, Computer Architecture, OOP with Python, Machine Learning with Big Data.</p>
+                <section class="section" id="projects">
+            <div class="section-header fade-in">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Selected Projects</h2>
+            </div>
+            <div class="projects-grid fade-in stagger-children">
+
+                                <div class="project-card-wrapper project-card-wrapper--featured" id="project-ibm">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">IBM IXN Project — Agentic AI System</h3>
+                            <span class="project-date">Jun 2026 — Present</span>
                         </div>
-                        <!-- Timeline Item: Bachelors -->
-                        <div class="relative">
-                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                             <h3 class="text-xl font-bold text-white">B.Tech in Mechanical Engineering</h3>
-                             <p class="text-md font-medium text-slate-400">Netaji Subhas University of Technology | <span class="text-blue-400">Graduated 2025</span></p>
-                             <p class="mt-2 text-slate-400 text-sm">Specialization in EVs. Awarded University Scholarship, ranked in the top 5% of the class with a GPA of 8.38/10.</p>
+                        <div class="project-description">
+                            <ul>
+                                <li>Developing an agentic AI system using IBM Granite models integrated with the OpenClaw runtime for natural language–driven task automation.</li>
+                                <li>Exploring dynamic skill generation to enable the agent to extend its own capabilities in response to new user requests.</li>
+                                <li>Working on a secure sandboxed execution setup using Docker for safely running AI-generated actions like file and browser automation.</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-            </section>
-            
-            
-            <section id="experience" class="fade-in-section">
-                 <h2 class="text-3xl font-bold text-white text-center mb-12">Work Experience</h2>
-                <div class="max-w-3xl mx-auto">
-                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
-                        
-                        <div class="relative">
-                             <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                             <h3 class="text-xl font-bold text-white">Workshop Assistant</h3>
-                             <p class="text-md font-medium text-slate-400">Netaji Subhas University of Technology | <span class="text-blue-400">May - July 2025</span></p>
-                             <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
-                                 <li>Repaired lathe machines by analyzing electrical schematics.</li>
-                                 <li>Devised a reverse-engineering technique for industrial drilling machines.</li>
-                                 <li>Conducted in-depth studies on industrial shaper machines.</li>
-                             </ul>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">IBM Granite</span>
+                                <span class="project-tag">OpenClaw</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">AI Agents</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            
-           
-            <section id="extracurriculars" class="fade-in-section">
-                <h2 class="text-3xl font-bold text-white text-center mb-12">Extracurriculars</h2>
-                <div class="max-w-3xl mx-auto">
-                    <div class="relative border-l-2 border-slate-700 pl-8 space-y-12">
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                            <h3 class="text-xl font-bold text-white">Director, Parliamentary Debating</h3>
-                            <p class="text-md font-medium text-slate-400">The Debating Society of NSUT | <span class="text-blue-400">2023-24</span></p>
-                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+
+                                <div class="project-card-wrapper" id="project-dmafb">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">Do Me A Favour Buddy</h3>
+                            <span class="project-date">Jan — Apr 2026</span>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Led a cross-functional team of 4 to develop a Next.js mental health application targeting an 80% reduction in employee burnout over 12 months.</li>
+                                <li>Spearheaded the full project lifecycle — competitive market analysis, functional/non-functional requirements, and client-driven design.</li>
+                                <li>Delivered Figma prototype 8 days early and database architecture 9 days ahead of schedule.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">Next.js</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Figma</span>
+                                <span class="project-tag">Mental Health</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-scoutcamp">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">ScoutCamp</h3>
+                            <span class="project-date">Sep — Dec 2025</span>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Led a team of 7 to build a Python3 CLI app for scout teams, boosting velocity from 3 to 8 story points/week via specialized sub-teams.</li>
+                                <li>Integrated OpenWeather API for automated climate warnings — reduced weather-related cancellations to 0% and improved inventory accuracy by 70%.</li>
+                                <li>Engineered CI/CD pipelines with GitHub Actions and AWS SAM, cutting operational costs by ~20%.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">AWS SAM</span>
+                                <span class="project-tag">CI/CD</span>
+                                <span class="project-tag">OpenWeather</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-crc">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">Cloud Resume Challenge</h3>
+                            <span class="project-date">2024</span>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Built a serverless cloud-native app on AWS with S3 hosting and CloudFront global distribution.</li>
+                                <li>Engineered a scalable API with Lambda, API Gateway, and DynamoDB using Python (Boto3).</li>
+                                <li>Automated full-stack IaC deployment with AWS SAM and CI/CD via GitHub Actions.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">Lambda</span>
+                                <span class="project-tag">DynamoDB</span>
+                                <span class="project-tag">CloudFront</span>
+                                <span class="project-tag">SAM</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AdityaPande128/Cloud_Resume_Challenge" target="_blank" class="project-link" id="crc-github-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                    Frontend
+                                </a>
+                                <a href="https://github.com/AdityaPande128/backend-visitor-counter" target="_blank" class="project-link" id="crc-backend-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                    Backend
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-clarity">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">Clarity — Voice Accessibility Tool</h3>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Architected a real-time assistant using JavaScript and SpeechRecognition API with a serverless Node.js backend on Vercel.</li>
+                                <li>Integrated Google Gemini with strict JSON validation to power an event-driven interactive timeline UI.</li>
+                                <li>Bridged real-time speech processing with high-reliability data persistence for accessible design.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">SpeechRecognition</span>
+                                <span class="project-tag">Gemini AI</span>
+                                <span class="project-tag">Vercel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/AdityaPande128/Clarity" target="_blank" class="project-link" id="clarity-github-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-econ-viz">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">U.S. State-Level Economic Data Visualization</h3>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Leveraged the FRED API to collect and consolidate U.S. state unemployment and participation data into Pandas DataFrames.</li>
+                                <li>Developed interactive Plotly visualizations for exploring multi-dimensional economic trends.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pandas</span>
+                                <span class="project-tag">Plotly</span>
+                                <span class="project-tag">FRED API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-housing">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">U.S. Housing Price Analysis</h3>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Engineered Scikit-learn predictive models to analyze the impact of national income and interest rates on median house prices.</li>
+                                <li>Built and evaluated regression models using FRED database economic data.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Scikit-learn</span>
+                                <span class="project-tag">FRED API</span>
+                                <span class="project-tag">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="project-card-wrapper" id="project-saw">
+                    <div class="project-card">
+                        <div class="card-spotlight"></div>
+                        <div class="project-header">
+                            <h3 class="project-title">Research: Submerged Arc Welding Parameters</h3>
+                        </div>
+                        <div class="project-description">
+                            <ul>
+                                <li>Utilized ANOVA to evaluate effects of SAW parameters on weld bead geometry.</li>
+                                <li>Developed predictive models and presented findings at a SCOPUS-indexed conference.</li>
+                            </ul>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tags">
+                                <span class="project-tag">ANOVA</span>
+                                <span class="project-tag">Research</span>
+                                <span class="project-tag">Predictive Modelling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <section class="section" id="education">
+            <div class="section-header fade-in">
+                <span class="section-label">Background</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">M.Sc. in Computer Science</h3>
+                        <p class="timeline-subtitle">University College London (UCL)</p>
+                        <span class="timeline-date">Graduating 2026</span>
+                        <div class="timeline-body">
+                            <p>Coursework: Data Structures &amp; Algorithms, Relational Databases, Computer Architecture, OOP with Python, Machine Learning with Big Data.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">B.Tech in Mechanical Engineering</h3>
+                        <p class="timeline-subtitle">Netaji Subhas University of Technology</p>
+                        <span class="timeline-date">Graduated 2025</span>
+                        <div class="timeline-body">
+                            <p>Specialization in EVs. Awarded University Scholarship, ranked in the top 5% of the class with a GPA of 8.38/10.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <section class="section" id="experience">
+            <div class="section-header fade-in">
+                <span class="section-label">Career</span>
+                <h2 class="section-title">Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Workshop Assistant</h3>
+                        <p class="timeline-subtitle">Netaji Subhas University of Technology</p>
+                        <span class="timeline-date">May — July 2025</span>
+                        <div class="timeline-body">
+                            <ul>
+                                <li>Repaired lathe machines by analyzing electrical schematics.</li>
+                                <li>Devised a reverse-engineering technique for industrial drilling machines.</li>
+                                <li>Conducted in-depth studies on industrial shaper machines.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <section class="section" id="activities">
+            <div class="section-header fade-in">
+                <span class="section-label">Leadership</span>
+                <h2 class="section-title">Extracurriculars</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Director, Parliamentary Debating</h3>
+                        <p class="timeline-subtitle">The Debating Society of NSUT</p>
+                        <span class="timeline-date">2023 — 2024</span>
+                        <div class="timeline-body">
+                            <ul>
                                 <li>Led a department of over 80 people, training and arranging events for juniors.</li>
                                 <li>Led contingents to 10+ national and international Parliamentary Debating competitions.</li>
                                 <li>Organized workshops with eminent international debaters from Australia and the US.</li>
                             </ul>
-                       </div>
-                       
-                       <div class="relative">
-                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                            <h3 class="text-xl font-bold text-white">Member, Executive Committee</h3>
-                            <p class="text-md font-medium text-slate-400">The Debating Society of NSUT | <span class="text-blue-400">2022-23</span></p>
-                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Member, Executive Committee</h3>
+                        <p class="timeline-subtitle">The Debating Society of NSUT</p>
+                        <span class="timeline-date">2022 — 2023</span>
+                        <div class="timeline-body">
+                            <ul>
                                 <li>Helped organize and manage multiple competitions, each attracting hundreds of competitors.</li>
                                 <li>Worked with fellow ExeComm members to ideate and advertise events while handling logistics.</li>
                             </ul>
-                       </div>
-                       
-                       <div class="relative">
-                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                            <h3 class="text-xl font-bold text-white">Under Director-General, Debating, Colloquium</h3>
-                            <p class="text-md font-medium text-slate-400">The Literary Fest of NSUT | <span class="text-blue-400">2023</span></p>
-                            <ul class="mt-2 list-disc list-inside text-slate-400 text-sm space-y-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Under Director-General, Debating, Colloquium</h3>
+                        <p class="timeline-subtitle">The Literary Fest of NSUT</p>
+                        <span class="timeline-date">2023</span>
+                        <div class="timeline-body">
+                            <ul>
                                 <li>Co-organized the largest Parliamentary Debating Tournament in North India in 2023.</li>
                                 <li>Managed outreach, logistics, and finances for the event.</li>
                             </ul>
-                       </div>
-                      
-                       <div class="relative">
-                            <div class="absolute -left-[42px] top-1.5 h-4 w-4 rounded-full bg-blue-500 ring-8 ring-slate-900"></div>
-                            <h3 class="text-xl font-bold text-white">Tab Director</h3>
-                            <p class="text-md font-medium text-slate-400">NSMPD | <span class="text-blue-400">2023</span></p>
-                             <p class="mt-2 text-slate-400 text-sm">Managed the TabbyCat software for a Parliamentary Debating tournament, handling allocations, scoring, and logistics.</p>
-                       </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
-        
-       
-
-        <footer id="contact" class="text-center mt-16 md:mt-24 pt-8 border-t border-slate-800">
-            <h2 class="text-2xl font-bold text-white mb-4">Get In Touch</h2>
-            <p class="text-slate-400 mb-6">Feel free to reach out!</p>
-            <a href="mailto:aditya.pande.128@gmail.com" class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                Say Hello!
-            </a>
-            <div class="mt-8 flex justify-center items-center space-x-6">
-                 <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="text-slate-500 hover:text-blue-400 transition-colors">
-                    <i data-lucide="linkedin" class="w-6 h-6"></i>
-                </a>
-                <a href="https://github.com/AdityaPande128" target="_blank" class="text-slate-500 hover:text-blue-400 transition-colors">
-                    <i data-lucide="github" class="w-6 h-6"></i>
-                </a>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">Tab Director</h3>
+                        <p class="timeline-subtitle">NSMPD</p>
+                        <span class="timeline-date">2023</span>
+                        <div class="timeline-body">
+                            <p>Managed the TabbyCat software for a Parliamentary Debating tournament, handling allocations, scoring, and logistics.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="text-slate-600 mt-8 text-sm">I'm looking for open roles right now. If you're hiring, please feel free to contact me.</p>
-            <p class="text-slate-500 mt-4 text-xs">Visitors: <span id="visitor-count">...</span><
-        </footer>
-
+        </section>
     </div>
 
-    </div>
+        <footer class="footer" id="contact">
+        <h2 class="footer-cta-title fade-in">Let's Connect</h2>
+        <p class="footer-cta-text fade-in">I'm actively looking for roles in software engineering. If you're hiring, I'd love to hear from you.</p>
+        <a href="mailto:aditya.pande.128@gmail.com" class="footer-btn fade-in" id="footer-email-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Say Hello
+        </a>
+        <div class="footer-links fade-in">
+            <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank" class="footer-social-link" id="footer-linkedin" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com/AdityaPande128" target="_blank" class="footer-social-link" id="footer-github" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+            <a href="mailto:aditya.pande.128@gmail.com" class="footer-social-link" id="footer-email" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+        </div>
+        <div class="footer-meta fade-in">
+            <div class="visitor-count">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span id="visitor-count">...</span> visitors
+            </div>
+        </div>
+    </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
