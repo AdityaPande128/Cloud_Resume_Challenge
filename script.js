@@ -125,7 +125,7 @@
     function update() {
         const scrollY = window.scrollY + 140;
         sections.forEach(section => {
-            const top = section.offsetTop;
+            const top = section.getBoundingClientRect().top + window.scrollY;
             const height = section.offsetHeight;
             const id = section.getAttribute('id');
             if (scrollY >= top && scrollY < top + height) {
