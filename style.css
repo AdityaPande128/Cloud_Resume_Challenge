@@ -713,16 +713,19 @@ ul { list-style: none; }
 .visitor-count {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(67, 97, 238, 0.15);
+  border: 1px solid rgba(67, 97, 238, 0.4);
   border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  box-shadow: 0 0 20px rgba(67, 97, 238, 0.2);
+  letter-spacing: 0.02em;
 }
 
-.visitor-count svg { width: 12px; height: 12px; }
+.visitor-count svg { width: 16px; height: 16px; stroke: #4361ee; }
 
 .fade-in {
   opacity: 0;
