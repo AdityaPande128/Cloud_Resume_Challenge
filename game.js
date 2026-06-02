@@ -686,15 +686,15 @@ function updateRocket(dt) {
             if (thrustParticles.length >= MAX_FIRE) break;
             const spread = new THREE.Vector3((Math.random() - 0.5) * 2.5, (Math.random() - 0.5) * 2.5, (Math.random() - 0.5) * 2.5);
             thrustParticles.push({
-                pos: rocketState.pos.clone().addScaledVector(backDir, -6),
-                vel: backDir.clone().multiplyScalar(-(40 + Math.random() * 60)).add(spread),
+                pos: rocketState.pos.clone().addScaledVector(backDir, 6),
+                vel: backDir.clone().multiplyScalar(40 + Math.random() * 60).add(spread),
                 life: 0.35 + Math.random() * 0.35, maxLife: 0.35 + Math.random() * 0.35
             });
         }
         if (smokeParticles.length < MAX_SMOKE && Math.random() < 0.5) {
             smokeParticles.push({
-                pos: rocketState.pos.clone().addScaledVector(backDir, -7),
-                vel: backDir.clone().multiplyScalar(-(10 + Math.random() * 20)).add(
+                pos: rocketState.pos.clone().addScaledVector(backDir, 7),
+                vel: backDir.clone().multiplyScalar(10 + Math.random() * 20).add(
                     new THREE.Vector3((Math.random() - 0.5) * 5, Math.random() * 3, (Math.random() - 0.5) * 5)
                 ),
                 life: 0.8 + Math.random() * 0.6, maxLife: 0.8 + Math.random() * 0.6
