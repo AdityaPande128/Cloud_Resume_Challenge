@@ -159,6 +159,15 @@ a {
   border-radius: var(--radius-full);
   box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(15, 23, 42, 0.05);
   pointer-events: auto;
+  max-width: 96vw;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-link {
@@ -168,6 +177,8 @@ a {
   color: var(--muted);
   border-radius: var(--radius-full);
   transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav-link:hover {
@@ -1147,66 +1158,276 @@ a {
 .fade-in-delay-4 { transition-delay: 0.4s; }
 
 @media (max-width: 900px) {
+  .container {
+    padding: 0 1.25rem 3.5rem;
+  }
   .skills-grid {
     grid-template-columns: 1fr;
   }
   .projects-grid {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 640px) {
-  .nav {
-    top: 0.5rem;
-  }
-  .nav-inner {
-    padding: 0.25rem 0.35rem;
-    gap: 0.1rem;
-    overflow-x: auto;
-    max-width: 95vw;
-  }
-  .nav-link {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.75rem;
-  }
-  .hero {
-    padding: 7rem 1rem 3.5rem;
-  }
-  .hero-name {
-    font-size: 2.25rem;
-  }
-  .hero-title {
-    font-size: 0.95rem;
-  }
-  .timeline {
-    padding-left: 1.35rem;
-  }
-  .timeline-dot {
-    left: -1.35rem;
-  }
-  .timeline-card {
-    padding: 1.35rem;
-  }
   .timeline-card-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
+  .timeline-date {
+    white-space: normal;
+    line-height: 1.45;
+    word-break: break-word;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    top: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  .nav-inner {
+    padding: 0.25rem 0.35rem;
+    gap: 0.15rem;
+    max-width: 96vw;
+  }
+  .nav-link {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .hero {
+    padding: 6.5rem 1rem 3rem;
+  }
+  .hero-name {
+    font-size: clamp(2rem, 8vw, 2.4rem);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .hero-links {
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .hero-link {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.825rem;
+  }
+  .container {
+    padding: 0 1rem 3rem;
+  }
+  .section {
+    margin-bottom: 3.5rem;
+  }
+  .section-header {
+    margin-bottom: 1.25rem;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .timeline {
+    padding-left: 1.35rem;
+    gap: 1.25rem;
+  }
+  .timeline-dot {
+    left: -1.35rem;
+  }
+  .timeline-card {
+    padding: 1.25rem 1.15rem;
+    border-radius: var(--radius-md);
+  }
+  .timeline-title {
+    font-size: 1.15rem;
+  }
+  .timeline-subtitle {
+    font-size: 0.925rem;
+  }
+  .coursework-box {
+    padding: 0.75rem 0.85rem;
+    margin-top: 0.75rem;
+  }
+  .coursework-label {
+    font-size: 0.725rem;
+    margin-bottom: 0.25rem;
+  }
+  .coursework-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .timeline-body li {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    padding-left: 1.15rem;
+  }
+  .cert-list {
+    gap: 0.65rem;
+    margin-top: 0.75rem;
+  }
+  .cert-item {
+    padding: 0.75rem 0.85rem;
+    gap: 0.65rem;
+  }
+  .cert-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .cert-name {
+    font-size: 0.85rem;
+  }
+  .cert-meta {
+    font-size: 0.725rem;
+    line-height: 1.35;
+  }
   .project-card {
-    padding: 1.35rem;
+    padding: 1.25rem 1.15rem;
+    border-radius: var(--radius-md);
   }
   .project-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+  .project-title {
+    font-size: 1.15rem;
+  }
+  .project-date {
+    font-size: 0.75rem;
+  }
+  .project-award {
+    font-size: 0.725rem;
+  }
+  .project-description {
+    margin-bottom: 1rem;
+  }
+  .project-description li {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    padding-left: 1.15rem;
+  }
+  .project-links {
+    gap: 0.45rem;
+  }
+  .project-link {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
+  }
+  .skill-category {
+    padding: 1.25rem 1.15rem;
+    border-radius: var(--radius-md);
+  }
+  .skill-category-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+  .skill-item-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .cert-modal-backdrop {
+    padding: 1rem;
   }
   .cert-modal-card {
-    padding: 1.5rem;
+    padding: 1.5rem 1.15rem;
+    border-radius: 16px;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+  .modal-cert-title {
+    font-size: 1.15rem;
+    padding-right: 1.5rem;
+  }
+  .modal-cert-issuer {
+    font-size: 0.85rem;
+    margin-bottom: 1.15rem;
   }
   .modal-meta-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.85rem;
+    margin-bottom: 1rem;
   }
   .modal-meta-item--full {
     grid-column: 1;
+  }
+  .modal-meta-label {
+    font-size: 0.7rem;
+  }
+  .modal-meta-value {
+    font-size: 0.875rem;
+  }
+  .modal-code-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .modal-code {
+    font-size: 0.78rem;
+    word-break: break-all;
+    padding: 0.45rem 0.6rem;
+    text-align: center;
+  }
+  .modal-copy-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.45rem;
+  }
+  .modal-verify-section {
+    padding: 0.85rem;
+  }
+  .modal-verify-label {
+    font-size: 0.725rem;
+  }
+  .modal-verify-btn {
+    font-size: 0.78rem;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+  .footer {
+    padding: 3.5rem 1rem 2.5rem;
+  }
+  .footer-cta-title {
+    font-size: 1.85rem;
+  }
+  .footer-cta-text {
+    font-size: 0.925rem;
+    margin-bottom: 1.5rem;
+  }
+  .footer-btn {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.925rem;
+    margin-bottom: 2rem;
+  }
+  .footer-links {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .footer-social-link {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-link {
+    width: 100%;
+    justify-content: center;
+  }
+  .timeline {
+    padding-left: 1.15rem;
+  }
+  .timeline-dot {
+    left: -1.15rem;
+  }
+  .timeline-card,
+  .project-card,
+  .skill-category {
+    padding: 1rem 0.85rem;
   }
 }

@@ -34,7 +34,19 @@
 
     <div id="landing-prompt" class="hidden">
         <div class="landing-prompt-inner">
-            <span class="key">SPACE</span> to explore
+            <span class="key desktop-only">SPACE</span>
+            <span class="prompt-text">Tap or press SPACE to explore</span>
+        </div>
+    </div>
+
+    <div id="mobile-controls">
+        <div class="touch-row">
+            <button class="touch-btn" id="touch-thrust" aria-label="Thrust Forward">▲</button>
+        </div>
+        <div class="touch-row">
+            <button class="touch-btn" id="touch-left" aria-label="Rotate Left">◄</button>
+            <button class="touch-btn" id="touch-brake" aria-label="Brake">■</button>
+            <button class="touch-btn" id="touch-right" aria-label="Rotate Right">►</button>
         </div>
     </div>
 
@@ -56,11 +68,12 @@
             <h1>Aditya's Universe</h1>
             <p class="intro-subtitle">Fly through 3D space to explore my portfolio</p>
             <div class="intro-controls">
-                <div class="control-row"><span class="key">W</span> / <span class="key">↑</span> Thrust forward</div>
-                <div class="control-row"><span class="key">A</span> / <span class="key">←</span> Rotate left</div>
-                <div class="control-row"><span class="key">D</span> / <span class="key">→</span> Rotate right</div>
-                <div class="control-row"><span class="key">S</span> / <span class="key">↓</span> Brake</div>
-                <div class="control-row"><span class="key">SPACE</span> Land on planet</div>
+                <div class="control-row desktop-only"><span class="key">W</span> / <span class="key">↑</span> Thrust forward</div>
+                <div class="control-row desktop-only"><span class="key">A</span> / <span class="key">←</span> Rotate left</div>
+                <div class="control-row desktop-only"><span class="key">D</span> / <span class="key">→</span> Rotate right</div>
+                <div class="control-row desktop-only"><span class="key">S</span> / <span class="key">↓</span> Brake</div>
+                <div class="control-row desktop-only"><span class="key">SPACE</span> Land on planet</div>
+                <div class="control-row mobile-only">Use on-screen controls or tap planets directly to explore</div>
             </div>
             <button id="start-btn">Launch</button>
         </div>

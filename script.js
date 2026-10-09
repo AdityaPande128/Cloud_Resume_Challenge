@@ -117,7 +117,18 @@
 
         links.forEach(link => {
             const href = link.getAttribute('href');
-            link.classList.toggle('active', href === '#' + current);
+            const isActive = href === '#' + current;
+            const wasActive = link.classList.contains('active');
+            link.classList.toggle('active', isActive);
+            if (isActive && !wasActive && window.innerWidth <= 960) {
+                const navInner = document.querySelector('.nav-inner');
+                if (navInner) {
+                    navInner.scrollTo({
+                        left: link.offsetLeft - (navInner.offsetWidth / 2) + (link.offsetWidth / 2),
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
     }
 

@@ -565,6 +565,8 @@ function createPlanets() {
         const labelEl = document.createElement('div');
         labelEl.className = 'planet-label';
         labelEl.innerHTML = `<span class="planet-label-name">${p.label}</span><span class="planet-label-explored" id="label-exp-${p.id}"></span>`;
+        labelEl.addEventListener('click', () => openPanel(p));
+        labelEl.addEventListener('touchend', (e) => { e.preventDefault(); openPanel(p); });
         labelsContainer.appendChild(labelEl);
         labelEls.push({ el: labelEl, data: p });
     }
@@ -717,6 +719,27 @@ function setupInput() {
     document.getElementById('close-panel').addEventListener('click', closePanel);
     document.getElementById('launch-btn').addEventListener('click', closePanel);
     document.getElementById('content-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closePanel(); });
+    const landingPromptEl = document.getElementById('landing-prompt');
+    if (landingPromptEl) {
+        landingPromptEl.addEventListener('click', () => { if (nearPlanet) openPanel(nearPlanet); });
+        landingPromptEl.addEventListener('touchend', (e) => { e.preventDefault(); if (nearPlanet) openPanel(nearPlanet); });
+    }
+    function setupTouchBtn(id, keyName) {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        const start = (e) => { e.preventDefault(); keys[keyName] = true; btn.classList.add('active'); };
+        const end = (e) => { e.preventDefault(); keys[keyName] = false; btn.classList.remove('active'); };
+        btn.addEventListener('touchstart', start, { passive: false });
+        btn.addEventListener('touchend', end, { passive: false });
+        btn.addEventListener('touchcancel', end, { passive: false });
+        btn.addEventListener('mousedown', start);
+        btn.addEventListener('mouseup', end);
+        btn.addEventListener('mouseleave', end);
+    }
+    setupTouchBtn('touch-thrust', 'KeyW');
+    setupTouchBtn('touch-left', 'KeyA');
+    setupTouchBtn('touch-right', 'KeyD');
+    setupTouchBtn('touch-brake', 'KeyS');
     document.getElementById('start-btn').addEventListener('click', () => {
         gameStarted = true;
         document.getElementById('intro-overlay').classList.add('hidden');
@@ -732,11 +755,15 @@ function openPanel(planet) {
     document.getElementById('content-body').innerHTML = planet.content();
     document.getElementById('content-overlay').classList.remove('hidden');
     document.getElementById('landing-prompt').classList.add('hidden');
+    const mc = document.getElementById('mobile-controls');
+    if (mc) mc.classList.add('hidden');
 }
 
 function closePanel() {
     panelOpen = false;
     document.getElementById('content-overlay').classList.add('hidden');
+    const mc = document.getElementById('mobile-controls');
+    if (mc) mc.classList.remove('hidden');
 }
 
 function updateRocket(dt) {
