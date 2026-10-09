@@ -4,7 +4,7 @@
 const PLANET_DATA = [
     {
         id: 'home', label: 'Home', x: 0, y: 0, z: 0,
-        radius: 20, color: 0x4361ee, cssColor: '#4361ee', emoji: '🏠',
+        radius: 20, color: 0x4361ee, cssColor: '#4361ee',
         hasRing: false, hasClouds: true, textureStyle: 'earthlike',
         content: () => `
             <h2>Aditya Pande</h2>
@@ -12,77 +12,170 @@ const PLANET_DATA = [
             <p>Building scalable cloud-native applications. Exploring AI agents and automation. Passionate about clean, performant code.</p>
             <div class="content-divider"></div>
             <h3>Quick Links</h3>
-            <p><a href="mailto:aditya.pande.128@gmail.com">✉ aditya.pande.128@gmail.com</a><br>
-            <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank">🔗 LinkedIn</a><br>
-            <a href="https://github.com/AdityaPande128" target="_blank">🐙 GitHub</a><br>
-            <a href="tel:+447774922201">📞 +44 7774 922201</a></p>`
-    },
-    {
-        id: 'skills', label: 'Skills', x: -65, y: 8, z: -40,
-        radius: 16, color: 0x10b981, cssColor: '#10b981', emoji: '⚡',
-        hasRing: false, hasClouds: false, textureStyle: 'tech',
-        content: () => `
-            <h2>Technical Skills</h2>
-            <p class="planet-subtitle">Expertise & Certifications</p>
-            <h3>Languages</h3>
-            <div class="content-tags"><span class="content-tag">Python</span><span class="content-tag">C</span><span class="content-tag">SQL</span><span class="content-tag">JavaScript</span><span class="content-tag">TypeScript</span><span class="content-tag">HTML/CSS</span><span class="content-tag">Bash</span></div>
-            <h3>Frameworks & Tools</h3>
-            <div class="content-tags"><span class="content-tag">AWS</span><span class="content-tag">Azure</span><span class="content-tag">Docker</span><span class="content-tag">Kubernetes</span><span class="content-tag">Terraform</span><span class="content-tag">Jenkins</span><span class="content-tag">Git</span><span class="content-tag">React</span><span class="content-tag">Node.js</span><span class="content-tag">Next.js</span><span class="content-tag">AWS SAM</span><span class="content-tag">Pandas</span><span class="content-tag">NumPy</span><span class="content-tag">Scikit-learn</span><span class="content-tag">Seaborn</span></div>
-            <div class="content-divider"></div>
-            <h3>Certifications</h3>
-            <div class="cert-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>Certified Kubernetes Administrator (CKA)</div>
-            <div class="cert-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>AWS Certified Cloud Practitioner (CLF-C02)</div>`
-    },
-    {
-        id: 'projects', label: 'Projects', x: 60, y: -5, z: -50,
-        radius: 18, color: 0x7c3aed, cssColor: '#7c3aed', emoji: '🚀',
-        hasRing: true, hasClouds: true, textureStyle: 'bands',
-        content: () => `
-            <h2>Selected Projects</h2><p class="planet-subtitle">Portfolio</p>
-            <div class="content-card"><h4>Cloud Resume Challenge</h4><div class="card-date">Oct. – Nov. 2025</div><ul><li>Developed a serverless portfolio on AWS, integrating an S3-hosted website and CloudFront distribution with a Python visitor-counter API using API Gateway, Lambda and DynamoDB.</li><li>Provisioned backend infrastructure and access permissions through AWS SAM, enabling repeatable deployments from version-controlled configuration.</li><li>Implemented CI/CD pipelines with GitHub Actions to automate backend builds and deployments, followed by integration tests verifying counter responses and persistent updates.</li></ul><div class="content-tags"><span class="content-tag">AWS</span><span class="content-tag">AWS SAM</span><span class="content-tag">Lambda</span><span class="content-tag">DynamoDB</span><span class="content-tag">CloudFront</span><span class="content-tag">Python</span><span class="content-tag">GitHub Actions</span></div><div style="margin-top:0.5rem"><a href="index.html" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">Live Site</a><a href="https://github.com/AdityaPande128/Cloud_Resume_Challenge" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">GitHub (Frontend)</a><a href="https://github.com/AdityaPande128/backend-visitor-counter" target="_blank" style="font-size:0.75rem;">GitHub (Backend)</a></div></div>
-            <div class="content-card"><h4>Clarity — Voice Accessibility Tool</h4><div class="card-date">Nov. – Dec. 2025</div><ul><li>Built an AI-based voice accessibility tool which won the 2025 Hiya AI Voice Challenge.</li><li>Combined JavaScript’s SpeechRecognition API with Google Gemini through a serverless Node.js backend on Vercel to flag pressure tactics, jargon and multi-part questions.</li></ul><div class="content-tags"><span class="content-tag">JavaScript</span><span class="content-tag">Google Gemini</span><span class="content-tag">SpeechRecognition</span><span class="content-tag">Node.js</span><span class="content-tag">Vercel</span></div><div style="margin-top:0.5rem"><a href="https://clarity-ai-project.vercel.app/" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">Live Site</a><a href="https://github.com/AdityaPande128/Clarity" target="_blank" style="font-size:0.75rem;">GitHub</a></div></div>
-            <div class="content-card"><h4>ScoutCamp</h4><div class="card-date">Sep — Dec 2025</div><ul><li>Led a team of 7 to build a Python3 CLI app, boosting velocity from 3 to 8 story points/week.</li><li>Integrated OpenWeather API — reduced weather-related cancellations to 0%.</li></ul><div class="content-tags"><span class="content-tag">Python</span><span class="content-tag">AWS SAM</span><span class="content-tag">CI/CD</span></div></div>`
+            <p><a href="mailto:aditya.pande.128@gmail.com">aditya.pande.128@gmail.com</a><br>
+            <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank">LinkedIn</a><br>
+            <a href="https://github.com/AdityaPande128" target="_blank">GitHub</a><br>
+            <a href="tel:+447774922201">+44 7774 922201</a></p>`
     },
     {
         id: 'education', label: 'Education', x: 75, y: 6, z: 30,
-        radius: 14, color: 0xf59e0b, cssColor: '#f59e0b', emoji: '🎓',
+        radius: 14, color: 0xf59e0b, cssColor: '#f59e0b',
         hasRing: false, hasClouds: false, textureStyle: 'rocky',
         content: () => `
-            <h2>Education</h2><p class="planet-subtitle">Academic Background</p>
-            <div class="content-card"><h4>M.Sc. in Computer Science</h4><div class="card-sub">University College London (UCL)</div><div class="card-date">Predicted: Distinction &bull; Graduating 2026</div><p>Coursework: Data Structures & Algorithms, Relational Databases, Computer Architecture, OOP with Python, Machine Learning with Big Data.</p></div>
-            <div class="content-card"><h4>Bachelor’s of Technology in Mechanical Engineering (EVs)</h4><div class="card-sub">NSUT, New Delhi</div><div class="card-date">GPA: 8.38/10 &bull; Graduated 2025</div><p>Specialization in EVs. Awarded University Scholarship, ranked in the top 5% with a GPA of 8.38/10.</p></div>`
+            <h2>Education</h2><p class="planet-subtitle">Academic Background & Credentials</p>
+            <div class="content-card">
+                <h4>Master of Science in Computer Science</h4>
+                <div class="card-sub">University College London (UCL)</div>
+                <div class="card-date">Sep 2025 – Sep 2026 &bull; Predicted: Distinction</div>
+                <p><strong>Relevant Coursework:</strong> Programming, Computer Architecture and Operating Systems, Algorithmics, Databases, Machine Learning with Big Data, and Software Engineering.</p>
+            </div>
+            <div class="content-card">
+                <h4>Bachelor of Technology in Mechanical Engineering (EVs)</h4>
+                <div class="card-sub">Netaji Subhas University of Technology (NSUT, New Delhi)</div>
+                <div class="card-date">2021 – 2025 &bull; First Division: 83.8% (GPA: 8.38/10)</div>
+                <p><strong>Relevant Coursework:</strong> Computer Programming, Data Structures and Algorithms, Calculus, Higher Order Differential Equations, Numerical Methods of Computation.</p>
+            </div>
+            <div class="content-divider"></div>
+            <h3>Certifications</h3>
+            <div class="cert-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>Certified Kubernetes Administrator (CKA) &bull; CNCF (Aug 2025 – Aug 2027)</div>
+            <div class="cert-badge"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>AWS Certified Cloud Practitioner (CLF-C02) &bull; AWS (May 2024 – May 2027)</div>`
     },
     {
         id: 'experience', label: 'Experience', x: -50, y: -4, z: 45,
-        radius: 13, color: 0xef4444, cssColor: '#ef4444', emoji: '💼',
+        radius: 13, color: 0xef4444, cssColor: '#ef4444',
         hasRing: false, hasClouds: false, textureStyle: 'warm',
         content: () => `
-            <h2>Work Experience</h2><p class="planet-subtitle">Career</p>
-            <div class="content-card"><h4>IBM (UCL IXN)</h4><div class="card-sub">Student Software Engineer</div><div class="card-date">Jun. – Sept. 2026</div><ul><li>Built a macOS AI assistant using Tauri, React, Node.js and Python/MLX that can undertake 39 different tasks across email, calendars, system and files using 5 locally running LLMs.</li><li>Engineered the assistant to self-improve by writing code to satisfy novel requests using on-device LLMs, achieving 80% task success on novel requests and leveraging semantic skill retrieval to handle 100% of rephrased requests without code regeneration.</li><li>Developed Android (Kotlin, Jetpack Compose), iOS (Swift, SwiftUI) companion apps enabling encrypted remote access.</li></ul><div class="content-tags"><span class="content-tag">Tauri</span><span class="content-tag">React</span><span class="content-tag">Node.js</span><span class="content-tag">Python/MLX</span><span class="content-tag">LLMs</span></div></div>
-            <div class="content-card"><h4>DMAFB - Mental Health App</h4><div class="card-sub">Student Software Engineer (Coursework)</div><div class="card-date">Jan. – Apr. 2026</div><ul><li>Automated Docker deployments to Azure VMs with GitHub Actions and Nginx, achieving 2,110 requests/s at 80 concurrent connections with 37.41 ms average latency and zero errors in direct-container, database-backed health-endpoint tests.</li><li>Implemented JWT authentication, email verification and invitations with Node.js, Express, TypeScript and PostgreSQL, validated using Vitest/Supertest with 550 unit tests passing in less than 3s and 110 integration tests across 10 domains.</li><li>Consolidated application services and PostgreSQL on a single Azure VM using Docker Compose, achieving a 34% infrastructure cost saving.</li></ul><div class="content-tags"><span class="content-tag">Docker</span><span class="content-tag">Azure</span><span class="content-tag">GitHub Actions</span><span class="content-tag">Node.js</span><span class="content-tag">TypeScript</span><span class="content-tag">PostgreSQL</span></div></div>`
+            <h2>Experience</h2><p class="planet-subtitle">Career</p>
+            <div class="content-card">
+                <h4>IBM (UCL IXN)</h4>
+                <div class="card-sub">Student Software Engineer</div>
+                <div class="card-date">Jun. – Sept. 2026</div>
+                <ul>
+                    <li>Built a macOS AI assistant using Tauri, React, Node.js and Python/MLX that can undertake 39 different tasks across email, calendars, system and files using 5 locally running LLMs.</li>
+                    <li>Engineered the assistant to self-improve by writing code to satisfy novel requests using on-device LLMs, achieving 80% task success on novel requests and leveraging semantic skill retrieval to handle 100% of rephrased requests without code regeneration.</li>
+                    <li>Developed Android (Kotlin, Jetpack Compose), iOS (Swift, SwiftUI) companion apps enabling encrypted remote access.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>DMAFB - Mental Health App</h4>
+                <div class="card-sub">Student Software Engineer (Coursework)</div>
+                <div class="card-date">Jan. – Apr. 2026</div>
+                <ul>
+                    <li>Automated Docker deployments to Azure VMs with GitHub Actions and Nginx, achieving 2,110 requests/s at 80 concurrent connections with 37.41 ms average latency and zero errors in direct-container, database-backed health-endpoint tests.</li>
+                    <li>Implemented JWT authentication, email verification and invitations with Node.js, Express, TypeScript and PostgreSQL, validated using Vitest/Supertest with 550 unit tests passing in less than 3s and 110 integration tests across 10 domains.</li>
+                    <li>Consolidated application services and PostgreSQL on a single Azure VM using Docker Compose, achieving a 34% infrastructure cost saving.</li>
+                </ul>
+            </div>`
     },
     {
-        id: 'activities', label: 'Activities', x: -5, y: 7, z: 75,
-        radius: 13, color: 0x06b6d4, cssColor: '#06b6d4', emoji: '🎤',
+        id: 'projects', label: 'Projects', x: 60, y: -5, z: -50,
+        radius: 18, color: 0x7c3aed, cssColor: '#7c3aed',
+        hasRing: true, hasClouds: true, textureStyle: 'bands',
+        content: () => `
+            <h2>Projects</h2><p class="planet-subtitle">Portfolio</p>
+            <div class="content-card">
+                <h4>Cloud Resume Challenge</h4>
+                <div class="card-date">Oct. – Nov. 2025</div>
+                <ul>
+                    <li>Developed a serverless portfolio on AWS, integrating an S3-hosted website and CloudFront distribution with a Python visitor-counter API using API Gateway, Lambda and DynamoDB.</li>
+                    <li>Provisioned backend infrastructure and access permissions through AWS SAM, enabling repeatable deployments from version-controlled configuration.</li>
+                    <li>Implemented CI/CD pipelines with GitHub Actions to automate backend builds and deployments, followed by integration tests verifying counter responses and persistent updates.</li>
+                </ul>
+                <div style="margin-top:0.5rem"><a href="index.html" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">Live Site</a><a href="https://github.com/AdityaPande128/Cloud_Resume_Challenge" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">GitHub (Frontend)</a><a href="https://github.com/AdityaPande128/backend-visitor-counter" target="_blank" style="font-size:0.75rem;">GitHub (Backend)</a></div>
+            </div>
+            <div class="content-card">
+                <h4>Clarity — Voice Accessibility Tool</h4>
+                <div class="card-date">Nov. – Dec. 2025 &bull; Winner of 2025 Hiya AI Voice Challenge</div>
+                <ul>
+                    <li>Built an AI-based voice accessibility tool which won the 2025 Hiya AI Voice Challenge.</li>
+                    <li>Combined JavaScript’s SpeechRecognition API with Google Gemini through a serverless Node.js backend on Vercel to flag pressure tactics, jargon and multi-part questions.</li>
+                </ul>
+                <div style="margin-top:0.5rem"><a href="https://clarity-ai-project.vercel.app/" target="_blank" style="font-size:0.75rem;margin-right:0.5rem;">Live Site</a><a href="https://github.com/AdityaPande128/Clarity" target="_blank" style="font-size:0.75rem;">GitHub</a></div>
+            </div>
+            <div class="content-card">
+                <h4>ScoutCamp — Camp Management App</h4>
+                <div class="card-date">Sept. – Dec. 2025</div>
+                <ul>
+                    <li>Led a 7-person engineering team to deliver a Python camp management application. Accelerated sprint velocity from 3 to 8 story points per week by restructuring the group into 3 specialized sub-teams aligned with core product domains.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>U.S. State-Level Economic Data Visualization</h4>
+                <ul>
+                    <li>Leveraged the FRED API to collect and consolidate U.S. state unemployment and participation data into Pandas DataFrames.</li>
+                    <li>Developed interactive Plotly visualizations for exploring multi-dimensional economic trends.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>U.S. Housing Price Analysis</h4>
+                <ul>
+                    <li>Engineered Scikit-learn predictive models to analyze the impact of national income and interest rates on median house prices.</li>
+                    <li>Built and evaluated regression models using FRED database economic data.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>Research: Submerged Arc Welding Parameters</h4>
+                <ul>
+                    <li>Utilized ANOVA to evaluate effects of SAW parameters on weld bead geometry.</li>
+                    <li>Developed predictive models and presented findings at a SCOPUS-indexed conference.</li>
+                </ul>
+            </div>`
+    },
+    {
+        id: 'activities', label: 'Extracurricular', x: -5, y: 7, z: 75,
+        radius: 13, color: 0x06b6d4, cssColor: '#06b6d4',
         hasRing: true, hasClouds: false, textureStyle: 'bands',
         content: () => `
-            <h2>Extracurriculars</h2><p class="planet-subtitle">Leadership & Activities</p>
-            <div class="content-card"><h4>Director, Parliamentary Debating</h4><div class="card-sub">The Debating Society of NSUT</div><div class="card-date">Sept. 2023 – Sept. 2024</div><ul><li>Led an 80+ member department, driving 30+ core initiatives, including the launch of the society’s first internal tournament and global training programs featuring debaters from 10+ countries.</li><li>Led end-to-end execution of North India’s largest debate tournament, coordinating cross-functional logistics to host 200+ participants from 27 institutions nationwide.</li></ul></div>
-            <div class="content-card"><h4>Member, Executive Committee</h4><div class="card-sub">The Debating Society of NSUT</div><div class="card-date">2022 — 2023</div><ul><li>Helped organize multiple competitions attracting hundreds of competitors.</li></ul></div>
-            <div class="content-card"><h4>Under Director-General, Debating, Colloquium</h4><div class="card-sub">The Literary Fest of NSUT</div><div class="card-date">2023</div><ul><li>Co-organized the largest Parliamentary Debating Tournament in North India.</li></ul></div>`
+            <h2>Extracurricular</h2><p class="planet-subtitle">Leadership & Activities</p>
+            <div class="content-card">
+                <h4>Director, Parliamentary Debating</h4>
+                <div class="card-sub">The Debating Society of NSUT</div>
+                <div class="card-date">Sept. 2023 – Sept. 2024</div>
+                <ul>
+                    <li>Led an 80+ member department, driving 30+ core initiatives, including the launch of the society’s first internal tournament and global training programs featuring debaters from 10+ countries.</li>
+                    <li>Led end-to-end execution of North India’s largest debate tournament, coordinating cross-functional logistics to host 200+ participants from 27 institutions nationwide.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>Member, Executive Committee</h4>
+                <div class="card-sub">The Debating Society of NSUT</div>
+                <div class="card-date">2022 — 2023</div>
+                <ul>
+                    <li>Helped organize multiple competitions attracting hundreds of competitors; worked with fellow ExeComm members to ideate and advertise events while handling logistics.</li>
+                </ul>
+            </div>
+            <div class="content-card">
+                <h4>Tab Director</h4>
+                <div class="card-sub">NSMPD</div>
+                <div class="card-date">2023</div>
+                <p>Managed the TabbyCat software for a Parliamentary Debating tournament, handling allocations, scoring, and logistics.</p>
+            </div>`
+    },
+    {
+        id: 'skills', label: 'Technical Skills', x: -65, y: 8, z: -40,
+        radius: 16, color: 0x10b981, cssColor: '#10b981',
+        hasRing: false, hasClouds: false, textureStyle: 'tech',
+        content: () => `
+            <h2>Technical Skills</h2>
+            <p class="planet-subtitle">Languages & Tools</p>
+            <h3>Languages</h3>
+            <p>Python, JavaScript, TypeScript, C/C++, SQL, HTML/CSS, Bash</p>
+            <div class="content-divider"></div>
+            <h3>Frameworks & Tools</h3>
+            <p>AWS, Azure, Docker, Kubernetes, Terraform, Jenkins, Git, React, Node.js, Next.js, AWS SAM, Pandas, NumPy, Scikit-learn, Seaborn</p>`
     },
     {
         id: 'contact', label: 'Contact', x: 45, y: -3, z: 55,
-        radius: 12, color: 0xec4899, cssColor: '#ec4899', emoji: '📬',
+        radius: 12, color: 0xec4899, cssColor: '#ec4899',
         hasRing: false, hasClouds: true, textureStyle: 'warm',
         content: () => `
             <h2>Let's Connect</h2><p class="planet-subtitle">Contact</p>
             <p>I'm actively looking for roles in software engineering. If you're hiring, I'd love to hear from you.</p>
             <div class="content-divider"></div>
-            <p><a href="mailto:aditya.pande.128@gmail.com">✉ aditya.pande.128@gmail.com</a><br><br>
-            <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank">🔗 LinkedIn — the-aditya-pande</a><br><br>
-            <a href="https://github.com/AdityaPande128" target="_blank">🐙 GitHub — AdityaPande128</a><br><br>
-            <a href="tel:+447774922201">📞 +44 7774 922201</a></p>`
+            <p><a href="mailto:aditya.pande.128@gmail.com">aditya.pande.128@gmail.com</a><br><br>
+            <a href="https://www.linkedin.com/in/the-aditya-pande/" target="_blank">LinkedIn</a><br><br>
+            <a href="https://github.com/AdityaPande128" target="_blank">GitHub</a><br><br>
+            <a href="tel:+447774922201">+44 7774 922201</a></p>`
     }
 ];
 
@@ -471,7 +564,7 @@ function createPlanets() {
 
         const labelEl = document.createElement('div');
         labelEl.className = 'planet-label';
-        labelEl.innerHTML = `<span class="planet-label-emoji">${p.emoji}</span><span class="planet-label-name">${p.label}</span><span class="planet-label-explored" id="label-exp-${p.id}"></span>`;
+        labelEl.innerHTML = `<span class="planet-label-name">${p.label}</span><span class="planet-label-explored" id="label-exp-${p.id}"></span>`;
         labelsContainer.appendChild(labelEl);
         labelEls.push({ el: labelEl, data: p });
     }
@@ -635,7 +728,7 @@ function openPanel(planet) {
     explored.add(planet.id);
     document.getElementById('explored-count').textContent = explored.size;
     const expEl = document.getElementById(`label-exp-${planet.id}`);
-    if (expEl) expEl.textContent = '✓ explored';
+    if (expEl) expEl.textContent = 'Explored';
     document.getElementById('content-body').innerHTML = planet.content();
     document.getElementById('content-overlay').classList.remove('hidden');
     document.getElementById('landing-prompt').classList.add('hidden');

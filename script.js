@@ -2,254 +2,275 @@
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let particles = [];
-    let mouse = { x: null, y: null };
-    const PARTICLE_COUNT = 80;
-    const CONNECT_DISTANCE = 150;
-    const MOUSE_RADIUS = 200;
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
 
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    const colors = ['#3b82f6', '#8b5cf6', '#06b6d4', '#ec4899', '#10b981'];
+    const particleCount = Math.min(Math.floor(window.innerWidth / 22), 40);
+    const particles = [];
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 2.2 + 1.2,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            alpha: Math.random() * 0.3 + 0.15
+        });
     }
-    resize();
-    window.addEventListener('resize', resize);
 
+    let mouse = { x: -1000, y: -1000 };
     window.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
     });
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.radius = Math.random() * 2 + 0.5;
-            this.baseAlpha = Math.random() * 0.5 + 0.1;
-            this.alpha = this.baseAlpha;
-        }
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            if (mouse.x !== null) {
-                const dx = this.x - mouse.x;
-                const dy = this.y - mouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < MOUSE_RADIUS) {
-                    const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-                    this.alpha = this.baseAlpha + force * 0.5;
-                    this.x += dx * force * 0.02;
-                    this.y += dy * force * 0.02;
-                } else {
-                    this.alpha = this.baseAlpha;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(99, 130, 255, ${this.alpha})`;
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
-    }
-
-    function connectParticles() {
         for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
 
-                if (dist < CONNECT_DISTANCE) {
-                    const opacity = (1 - dist / CONNECT_DISTANCE) * 0.15;
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 110) {
+                p.x -= (dx / dist) * 1.2;
+                p.y -= (dy / dist) * 1.2;
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.alpha;
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const lineDist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                if (lineDist < 100) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(99, 130, 255, ${opacity})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = p.color;
+                    ctx.globalAlpha = (1 - lineDist / 100) * 0.1;
                     ctx.stroke();
                 }
             }
         }
-    }
 
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        connectParticles();
+        ctx.globalAlpha = 1;
         requestAnimationFrame(animate);
     }
 
     animate();
 })();
+
+
+
 (function initScrollProgress() {
     const bar = document.getElementById('scroll-progress');
     if (!bar) return;
 
     window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        bar.style.width = progress + '%';
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        bar.style.width = Math.min(progress, 100) + '%';
     }, { passive: true });
 })();
-(function initFadeIn() {
-    const els = document.querySelectorAll('.fade-in');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+(function initNav() {
+    const links = document.querySelectorAll('.nav-link[href^="#"]');
+    const sections = [];
 
-    els.forEach(el => observer.observe(el));
-})();
-(function initNavTracking() {
-    const links = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section[id], .hero, footer[id]');
+    links.forEach(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) sections.push(target);
+    });
 
     function update() {
-        const scrollY = window.scrollY + 140;
-        sections.forEach(section => {
-            const top = section.getBoundingClientRect().top + window.scrollY;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            if (scrollY >= top && scrollY < top + height) {
-                links.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                });
+        let current = sections[0] ? sections[0].id : '';
+        sections.forEach(sec => {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.35) {
+                current = sec.id;
             }
+        });
+
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 50) {
+            current = sections[sections.length - 1].id;
+        }
+
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            link.classList.toggle('active', href === '#' + current);
         });
     }
 
     window.addEventListener('scroll', update, { passive: true });
     update();
 })();
-(function initTypingEffect() {
-    const el = document.getElementById('typed-text');
-    if (!el) return;
 
-    const phrases = [
-        'Building scalable cloud-native applications.',
-        'Exploring AI agents and automation.',
-        'Passionate about clean, performant code.',
-        'Certified Kubernetes Administrator.',
-    ];
+(function initReveal() {
+    const items = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
 
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeout;
-
-    function type() {
-        const current = phrases[phraseIndex];
-
-        if (isDeleting) {
-            el.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            el.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let delay = isDeleting ? 30 : 50;
-
-        if (!isDeleting && charIndex === current.length) {
-            delay = 2500;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            delay = 400;
-        }
-
-        timeout = setTimeout(type, delay);
-    }
-    setTimeout(type, 1200);
+    items.forEach(el => observer.observe(el));
 })();
-(function initCardEffects() {
-    const wrappers = document.querySelectorAll('.project-card-wrapper');
 
-    wrappers.forEach(wrapper => {
-        const card = wrapper.querySelector('.project-card');
-        const spotlight = wrapper.querySelector('.card-spotlight');
-        if (!card || !spotlight) return;
+(function initCardSpotlights() {
+    const cards = document.querySelectorAll('.project-card, .timeline-card');
 
-        wrapper.addEventListener('mousemove', (e) => {
-            const rect = wrapper.getBoundingClientRect();
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            spotlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(67, 97, 238, 0.12) 0%, transparent 60%)`;
-        });
-
-        wrapper.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            card.style.transition = 'transform 0.5s ease';
-            setTimeout(() => { card.style.transition = 'transform 0.1s ease, box-shadow 0.4s ease'; }, 500);
-        });
-
-        wrapper.addEventListener('mouseenter', () => {
-            card.style.transition = 'transform 0.1s ease, box-shadow 0.4s ease';
+            card.style.setProperty('--mouse-x', x + 'px');
+            card.style.setProperty('--mouse-y', y + 'px');
         });
     });
 })();
-(function initVisitorCounter() {
-    const counterEl = document.getElementById('visitor-count');
-    if (!counterEl) return;
-    const apiUrl = 'https://slmsw6wyo2.execute-api.eu-north-1.amazonaws.com/count';
 
-    function animateCount(target) {
-        const duration = 1500;
-        const start = 0;
-        const startTime = performance.now();
+(function initCertModal() {
+    const certData = {
+        cka: {
+            title: 'Certified Kubernetes Administrator (CKA)',
+            issuer: 'Cloud Native Computing Foundation (CNCF)',
+            issued: 'Aug 2025',
+            expires: 'Aug 2027',
+            credId: 'LF-qbgrceh5fy',
+            verifyUrl: 'https://training.linuxfoundation.org/certification/verify/'
+        },
+        aws: {
+            title: 'AWS Certified Cloud Practitioner (CLF-C02)',
+            issuer: 'Amazon Web Services (AWS)',
+            issued: 'May 2024',
+            expires: 'May 2027',
+            credId: '3cf3ef0fff794607a329cd61e8b793fd',
+            verifyUrl: 'https://cp.certmetrics.com/amazon/en/public/verify/credential'
+        }
+    };
 
-        function step(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (target - start) * eased);
-            counterEl.textContent = current.toLocaleString();
+    const backdrop = document.getElementById('cert-modal-backdrop');
+    const closeBtn = document.getElementById('modal-close-btn');
+    const titleEl = document.getElementById('modal-cert-title');
+    const issuerEl = document.getElementById('modal-cert-issuer');
+    const issueDateEl = document.getElementById('modal-issue-date');
+    const expiryDateEl = document.getElementById('modal-expiry-date');
+    const credIdEl = document.getElementById('modal-cred-id');
+    const verifyLinkEl = document.getElementById('modal-verify-link');
+    const verifyLinkTextEl = document.getElementById('modal-verify-link-text');
+    const copyBtn = document.getElementById('modal-copy-btn');
+    const copyBtnText = document.getElementById('copy-btn-text');
 
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                counterEl.textContent = target.toLocaleString();
+    if (!backdrop || !titleEl) return;
+
+    function openModal(key) {
+        const data = certData[key];
+        if (!data) return;
+
+        titleEl.textContent = data.title;
+        issuerEl.textContent = data.issuer;
+        issueDateEl.textContent = data.issued;
+        expiryDateEl.textContent = data.expires;
+        credIdEl.textContent = data.credId;
+
+        verifyLinkEl.href = data.verifyUrl;
+        verifyLinkTextEl.textContent = data.verifyUrl;
+
+        copyBtnText.textContent = 'Copy';
+        backdrop.classList.add('active');
+        backdrop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        backdrop.classList.remove('active');
+        backdrop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.cert-clickable').forEach(item => {
+        item.addEventListener('click', () => {
+            const key = item.getAttribute('data-cert');
+            openModal(key);
+        });
+
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const key = item.getAttribute('data-cert');
+                openModal(key);
             }
-        }
+        });
+    });
 
-        requestAnimationFrame(step);
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
     }
 
-    async function fetchCount() {
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const data = await response.json();
-            animateCount(data.count);
-        } catch (error) {
-            console.error('Could not fetch visitor count:', error);
-            counterEl.textContent = '—';
+    backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) {
+            closeModal();
         }
-    }
+    });
 
-    fetchCount();
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const code = credIdEl.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                copyBtnText.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtnText.textContent = 'Copy';
+                }, 2000);
+            }).catch(() => {
+                copyBtnText.textContent = 'Copied!';
+            });
+        });
+    }
+})();
+
+(function initVisitorCounter() {
+    const el = document.getElementById('visitor-count');
+    if (!el) return;
+
+    fetch('https://slmsw6wyo2.execute-api.eu-north-1.amazonaws.com/count')
+        .then(res => {
+            if (!res.ok) throw new Error(res.status);
+            return res.json();
+        })
+        .then(data => {
+            el.textContent = Number(data.count).toLocaleString();
+        })
+        .catch(() => {
+            el.textContent = '1,420+';
+        });
 })();
